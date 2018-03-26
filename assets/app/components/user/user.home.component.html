@@ -1,0 +1,75 @@
+<h2>Hello {{fullname}} </h2>
+<hr>
+<style>
+    [class="col-md-3"] {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: rgba(86, 61, 124, .15);
+        border: 1px solid rgba(86, 61, 124, .2);
+    }
+
+    [class="col-md-6"] {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: rgba(86, 61, 124, .15);
+        border: 1px solid rgba(86, 61, 124, .2);
+    }
+</style>
+<h4 class="page-header">Current Books</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Title</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4>Author</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4>ISBN</h4>
+                </div>
+            </div>
+            <div *ngFor="let book of _books">
+                <div class="row">
+                    <div class="col-md-3">{{ book.title }}</div>
+                    <div class="col-md-6">{{ book.author }}</div>
+                    <div class="col-md-3">{{ book.isbn }}
+                        <button (click)="onRemove(book.isbn)">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<button (click)="onSave()">Save</button>
+<button (click)="onReset()">Reset</button>
+<hr>
+<h4 class="page-header">Available Books</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Title</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4>Author</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4>ISBN</h4>
+                </div>
+            </div>
+            <div *ngFor="let book of _availablebooks">
+                <div class="row">
+                    <div class="col-md-3">{{ book.title }}</div>
+                    <div class="col-md-6">{{ book.author }}</div>
+                    <div class="col-md-3">{{ book.isbn }}
+                        <button (click)="onAdd(book.isbn)">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
