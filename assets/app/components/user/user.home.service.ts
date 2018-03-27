@@ -16,19 +16,19 @@ export class UserHomeService {
     }
 
     getBooks(studentid: string) {
-        return this.http.get('http://localhost/student/' + studentid + "?token=" + this.authService.token(), { headers: headers })
+        return this.http.get('http://localhost:3000/student/' + studentid + "?token=" + this.authService.token(), { headers: headers })
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
     getAvailableBooks() {
-        return this.http.get('http://localhost/book/'+ "?token=" + this.authService.token(), { headers: headers })
+        return this.http.get('http://localhost:3000/book/'+ "?token=" + this.authService.token(), { headers: headers })
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
     save(studentid: string, data) {
         const body = JSON.stringify(data);
 
-        return this.http.post('http://localhost/student/' + studentid+ "?token=" + this.authService.token(), body, { headers: headers })
+        return this.http.post('http://localhost:3000/student/' + studentid+ "?token=" + this.authService.token(), body, { headers: headers })
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }

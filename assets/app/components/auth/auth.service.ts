@@ -17,14 +17,14 @@ export class AuthService {
 
     register(user: User) {
         const body = JSON.stringify(user);
-        return this.http.post('http://localhost/auth/register', body, {headers: headers})
+        return this.http.post('http://localhost:3000/auth/register', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
     login(user: User) {
         const body = JSON.stringify(user);
-        return this.http.post('http://localhost/auth/login', body, {headers: headers})
+        return this.http.post('http://localhost:3000/auth/login', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => Observable.throw(error.json()));
     }
